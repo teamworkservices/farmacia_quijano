@@ -1,0 +1,16 @@
+.app-title{
+    font-family: 'Bauhaus Bold Italic';
+    font-weight: bold;
+    color: #169DA0;
+    font-size: 45px !important;
+}
+
+.text-log{
+    text: #5B5B5B !important;
+    opacity: .6 !important;
+    font-weight: 500 !important;
+  }
+
+::ng-deep .items-menu{
+    width: 230px !important;
+}  

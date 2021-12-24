@@ -9,7 +9,7 @@ import { Dosificacion } from 'src/app/shared/models/dosificacion';
 })
 export class DosificacionComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nombre', 'descripcion', 'codigo'];
+  displayedColumns: string[] = ['id','nombre','descripcion','codigo'];
   dosificacionData: Dosificacion[] = [
     {id: 1, nombre: 'Hydrogen', descripcion: 'Descripcion', codigo: 'H'},
     {id: 2, nombre: 'Hydro', descripcion: 'Descripcion', codigo: 'H'},
@@ -22,6 +22,7 @@ export class DosificacionComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource<Dosificacion>([]);
+    this.dataSource.data = this.dosificacionData;
   }
 
 }

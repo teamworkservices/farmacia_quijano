@@ -1,0 +1,32 @@
+<div>
+    <mat-toolbar>
+        <span class="green">Inicio</span>
+        <span>/ Dosificacion</span>
+    </mat-toolbar>
+    
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id. </th>
+        <th mat-cell *matCellDef="let element"> {{element.id}} </th>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <th mat-cell *matCellDef="let element"> {{element.nombre}} </th>
+    </ng-container>
+
+    <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+        <th mat-cell *matCellDef="let element"> {{element.descripcion}} </th>
+    </ng-container>
+
+    <ng-container matColumnDef="codigo">
+        <th mat-header-cell *matHeaderCellDef> Codigo </th>
+        <th mat-cell *matCellDef="let element"> {{element.codigo}} </th>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

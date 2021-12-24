@@ -13,7 +13,6 @@ const routes: Routes = [
     children: [
       {
         path: 'pages',
-        //Que cargue el componente y ademas el modulo
         component: LayoutfullComponent,
         loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule),
       }

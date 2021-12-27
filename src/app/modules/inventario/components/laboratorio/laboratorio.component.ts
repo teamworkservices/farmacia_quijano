@@ -54,7 +54,7 @@ export class LaboratorioComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (!!result) {
-        this.loadTableLaboratorio;
+        this.loadTableLaboratorio();
       }
     });
   }

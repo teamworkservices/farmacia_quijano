@@ -1,0 +1,71 @@
+<div>
+    <mat-toolbar>
+        <span class="green">Inicio</span>
+        <span>/ Medicamento</span>
+    </mat-toolbar>
+    
+</div>
+
+<mat-toolbar>
+    <button (click)="openCreateDialog()" mat-raised-button>
+        <mat-icon>add_circle_outline</mat-icon>
+        AGREGAR
+    </button>
+</mat-toolbar>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id. </th>
+        <td mat-cell *matCellDef="let element"> {{element.idMedicamento}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="codigoCompra">
+        <th mat-header-cell *matHeaderCellDef> codigo Compra </th>
+        <td mat-cell *matCellDef="let element"> {{element.codigoCompra}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="codigoBarra">
+        <th mat-header-cell *matHeaderCellDef> codigo Barra </th>
+        <td mat-cell *matCellDef="let element"> {{element.codigoBarra}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cantidad">
+        <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+        <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="precio">
+        <th mat-header-cell *matHeaderCellDef> Precio </th>
+        <td mat-cell *matCellDef="let element"> {{element.precio}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="laboratorio">
+        <th mat-header-cell *matHeaderCellDef> Laboratorio </th>
+        <td mat-cell *matCellDef="let element"> {{element.nomLaboratorio}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dosificacion">
+        <th mat-header-cell *matHeaderCellDef> Dosificacion </th>
+        <td mat-cell *matCellDef="let element"> {{element.nomDosificacion}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+        <th *matHeaderCellDef id="acciones" mat-header-cell>ACCIÓN</th>
+        <td *matCellDef="let element;" mat-cell>
+          <a (click)="openEditDialog(element)" class="green" matTooltip="Editar">
+            <mat-icon class="mat-icon-green">edit</mat-icon>
+          </a>
+          <a (click)="eliminarMedicamento(element)" class="green margin-l" matTooltip="Eliminar">
+            <mat-icon class="mat-icon-green">delete_forever</mat-icon>
+          </a>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

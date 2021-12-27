@@ -16,8 +16,12 @@
         </mat-grid-tile>
 
         <mat-grid-tile [colspan]="1" [rowspan]="1">
-            <mat-form-field appearance="fill" >
-                <input matInput #input maxlength="20" autocomplete="off" formControlName="laboratorioCtrl">
+            <mat-form-field appearance="fill">
+                <mat-select formControlName="laboratorioCtrl">
+                    <mat-option *ngFor="let laboratorio of laboratorios" [value]="laboratorio.nombre">
+                        {{laboratorio.nombre}}
+                    </mat-option>
+                </mat-select>
             </mat-form-field>
         </mat-grid-tile>
 
@@ -26,8 +30,12 @@
         </mat-grid-tile>
 
         <mat-grid-tile [colspan]="1" [rowspan]="1">
-            <mat-form-field appearance="fill" >
-                <input matInput #input maxlength="20" autocomplete="off" formControlName="dosificacionCtrl">
+            <mat-form-field appearance="fill">
+                <mat-select formControlName="dosificacionCtrl">
+                    <mat-option *ngFor="let dosificacion of dosificaciones" [value]="dosificacion.nombre">
+                        {{dosificacion.nombre}}
+                    </mat-option>
+                </mat-select>
             </mat-form-field>
         </mat-grid-tile>
 

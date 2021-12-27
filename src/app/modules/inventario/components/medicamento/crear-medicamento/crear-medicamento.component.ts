@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Dosificacion } from 'src/app/shared/models/dosificacion';
 import { Laboratorio } from 'src/app/shared/models/laboratorio';
 import { Medicamento } from 'src/app/shared/models/medicamento';
 import Swal from 'sweetalert2';
+import { DosificacionService } from '../../../services/dosificacion.service';
 import { LaboratorioService } from '../../../services/laboratorio.service';
 import { MedicamentoService } from '../../../services/medicamento.service';
 
@@ -15,16 +17,18 @@ import { MedicamentoService } from '../../../services/medicamento.service';
 export class CrearMedicamentoComponent implements OnInit {
   form: FormGroup;
   laboratorios: Laboratorio[];
-  selectedValue: string;
+  dosificaciones: Dosificacion[];
   
   constructor(private fb: FormBuilder, private medicamentoService: MedicamentoService, 
     public dialogRef: MatDialogRef<CrearMedicamentoComponent>,
-    private laboratorioService: LaboratorioService) { 
-    this.selectedValue = "";
+    private laboratorioService: LaboratorioService,
+    private dosificacionService: DosificacionService) { 
+    this.dosificaciones = this.dosificacionService.getDosificaciones();
     this.laboratorios = this.laboratorioService.listarLaboratorios();
     this.form = this.fb.group({
       nombreCtrl: ['', [Validators.required, Validators.maxLength(20)]],
-      dosificacionCtrl: ['', [Validators.required, Validators.maxLength(20)]],
+      laboratorioCtrl:['', [Validators.required]],
+      dosificacionCtrl: ['', [Validators.required]],
       codigoBarraCtrl: ['', [Validators.required, Validators.maxLength(20)]],
       codigoCompraCtrl: ['', [Validators.required, Validators.maxLength(20)]],
       cantidadCtrl: ['', [Validators.required, Validators.maxLength(20)]],
@@ -39,7 +43,7 @@ export class CrearMedicamentoComponent implements OnInit {
     if (this.form.valid) {
       let varMedicamento = new Medicamento();
       varMedicamento.nombre = this.form.value['nombreCtrl'];
-      varMedicamento.nomLaboratorio = this.form.value['laboratorio'];
+      varMedicamento.nomLaboratorio = this.form.value['laboratorioCtrl'];
       varMedicamento.nomDosificacion = this.form.value['dosificacionCtrl'];
       varMedicamento.codigoBarra = this.form.value['codigoBarraCtrl'];
       varMedicamento.codigoCompra = this.form.value['codigoCompraCtrl'];

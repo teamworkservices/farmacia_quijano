@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Dosificacion } from 'src/app/shared/models/dosificacion';
+import Swal from 'sweetalert2';
 import { DosificacionService } from '../../../services/dosificacion.service';
 
 @Component({
@@ -35,7 +36,13 @@ export class CrearDosificacionComponent implements OnInit {
   }
 
   confirmModal(){
-    
+    Swal.fire({
+      title: 'Correcto',
+      text: 'Dosificación agregado exitosamente!',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 2000
+    })
   }
 
 }

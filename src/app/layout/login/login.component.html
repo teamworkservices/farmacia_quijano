@@ -1,0 +1,53 @@
+<form [formGroup]="loginForm" name="loginForm" (ngSubmit)="loginUser()">
+    <mat-grid-list cols="2" rowHeight="70px" class="mat-list-full mat-list-full-form">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-label class="text-form">USUARIO</mat-label>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill" class="form_input">
+          <input matInput required
+                 autocomplete="on" formControlName="usernameCtrl">
+          <!--<mat-error *ngIf="loginForm['usernameCtrl'].hasError('required')">El
+            Usuario es necesario
+          </mat-error>
+          <mat-error *ngIf="loginForm['usernameCtrl'].hasError('incorrect')">
+            Verifique el número de  documento
+          </mat-error>-->
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-label class="text-form">CONTRASEÑA</mat-label>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill" class="form_input">
+          <input matInput required type="password"
+                 autocomplete="off" formControlName="passwordCtrl">
+          <!--<mat-error *ngIf="loginForm['passwordCtrl'].hasError('required')">La contraseña
+            es necesaria para iniciar sesión
+          </mat-error>
+          <mat-error *ngIf="loginForm['passwordCtrl'].hasError('incorrect')">Verifique la
+            contraseña
+          </mat-error>-->
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="3" rowHeight="30px" row>
+      <mat-grid-tile></mat-grid-tile>
+      <mat-grid-tile class="a-pass" [colspan]="2" [rowspan]="1">
+        <a href="#">OLVIDÉ MI CONTRASEÑA</a>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="1" rowHeight="70px">
+      <mat-grid-tile class="btn-login" [colspan]="1" [rowspan]="1">
+        <button  mat-raised-button color="primary" class="width-full mat-button"
+                 [disabled]="!loginForm.valid">INICIAR SESIÓN</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+</form>
+

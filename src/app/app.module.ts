@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { ReactiveFormsModule  } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -14,7 +16,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MatGridListModule
+    MatGridListModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

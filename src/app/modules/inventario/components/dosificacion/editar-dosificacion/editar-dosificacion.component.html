@@ -1,0 +1,35 @@
+<form [formGroup]="form" (ngSubmit)="editarDosificacion()">
+
+    <mat-grid-list cols="2" rowHeight="75px">
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-label>CÓDIGO DOSIFICACIÓN:</mat-label>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill"  hintLabel="Max 3 caracteres">
+          <input matInput #input maxlength="3" autocomplete="off" formControlName="codigoCtrl">
+          <mat-hint align="end"> {{input.value?.length || 0}}/3</mat-hint>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-label>NOMBRE DOSIFICACIÓN:</mat-label>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+          <input matInput #input maxlength="20" autocomplete="off" formControlName="nombreCtrl">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <button [disabled]="form.invalid" color="primary" mat-button
+                (click)="confirmModal()" mat-raised-button type="submit">
+          <mat-icon>save</mat-icon>
+          ACTUALIZAR
+        </button>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+</form>

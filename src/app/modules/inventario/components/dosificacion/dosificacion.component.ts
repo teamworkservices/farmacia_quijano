@@ -18,7 +18,11 @@ export class DosificacionComponent implements OnInit {
   
 
   dataSource!: MatTableDataSource<Dosificacion>
-  constructor(public dialog: MatDialog, public dosificacionService:DosificacionService) { }
+  dosificacionEmitida: Dosificacion;
+
+  constructor(public dialog: MatDialog, public dosificacionService:DosificacionService) { 
+    this.dosificacionEmitida = new Dosificacion();
+  }
 
   ngOnInit(): void {
     this.loadTableDosificacion();
@@ -74,6 +78,9 @@ export class DosificacionComponent implements OnInit {
         Swal.fire('Saved!', '', 'success')
       }
     })
+  }
 
+  setDosificacionSeleccionada(dosificacion:Dosificacion){
+    this.dosificacionEmitida = dosificacion;
   }
 }

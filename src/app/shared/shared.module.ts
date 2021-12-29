@@ -12,9 +12,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule} from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { BuscadorDosificacionComponent } from './components/buscador-dosificacion/buscador-dosificacion.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    BuscadorDosificacionComponent
+  ],
   imports: [
     CommonModule,
     MatGridListModule,
@@ -28,7 +32,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule    
+    MatButtonModule,
+    MatAutocompleteModule   
   ],
   exports: [
     MatGridListModule,
@@ -42,7 +47,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule 
+    MatButtonModule,
+    MatAutocompleteModule,
+    BuscadorDosificacionComponent
   ]
 })
 export class SharedModule { }

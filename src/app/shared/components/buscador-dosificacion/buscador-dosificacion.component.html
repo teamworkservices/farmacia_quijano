@@ -1,0 +1,16 @@
+<form [formGroup]="dosificacionForm">
+  <mat-form-field appearance="fill" class="input-auto-full-size">
+    <input type="text" matInput #inputDosificacion
+           formControlName="dosificacionCtrl"
+           placeholder={{placeholderTitulo}}
+           [matAutocomplete]="autoDosificacion"
+           (input)="getDosificaciones($event)">
+    <mat-autocomplete #autoDosificacion="matAutocomplete" (optionSelected)="setDosificacionSeleccionado($event.option.value)">
+      <ng-container>
+        <mat-option *ngFor="let option of listDosificacionesEncontrados" [value]="option">
+          {{ option.codigo }} - {{ option.nombre }}
+        </mat-option>
+      </ng-container>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

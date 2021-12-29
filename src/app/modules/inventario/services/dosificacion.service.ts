@@ -37,4 +37,12 @@ export class DosificacionService {
   eliminarDosificacion(id:number){
     this.dosificacionData = this.dosificacionData.filter(item => item.id != id);
   }
+
+  getDosificacionesFilter(input: string): Dosificacion[] {
+    const match = this.dosificacionData.filter(element => 
+      (element.nombre.toLowerCase().includes(input.toLowerCase()) || element.codigo.toLowerCase().includes(input.toLowerCase()))
+    );
+    return match;
+  }
+
 }
